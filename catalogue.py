@@ -161,6 +161,12 @@ def regrouper_par_auteur(livres):
     return groupes
 
 
+def regrouper_par_auteur_defaultdict(livres):
+    groupes = defaultdict(list)
+    for livre in livres:
+        groupes[livre.auteur].append(livre)
+    return dict(groupes)
+
 
 if __name__ == "__main__":
     from livre_s17 import Livre
@@ -174,10 +180,10 @@ if __name__ == "__main__":
     DOUBLON = Livre("1984 (réédition)", "Orwell", "9780451524935", 328, 1949)
     AVEC_DOUBLON = CATALOGUE + [DOUBLON]
 
-    print([l.titre for l in trier_par_titre(CATALOGUE)])
-    print([l.annee for l in trier_par_annee(CATALOGUE, True)])
-    print([l.annee for l in trier_par_annee(CATALOGUE, recents_dabord=True)])
-    print([(l.auteur, l.annee) for l in trier_par_auteur_puis_annee_recente(CATALOGUE)])
+    print([l.titre for l in trier_par_titre(CATALOGUE)])  # noqa: E741
+    print([l.annee for l in trier_par_annee(CATALOGUE, True)])  # noqa: E741
+    print([l.annee for l in trier_par_annee(CATALOGUE, recents_dabord=True)])  # noqa: E741
+    print([(l.auteur, l.annee) for l in trier_par_auteur_puis_annee_recente(CATALOGUE)])  # noqa: E741
 
     print("------")
     print(" ")
@@ -204,4 +210,4 @@ if __name__ == "__main__":
     print(indexer_par_isbn(CATALOGUE)["9780060850524"].titre)  # 'Le Meilleur des mondes'
     g = regrouper_par_auteur(CATALOGUE)
     print(len(g["Orwell"]))  # 2
-    print([l.titre for l in g["Orwell"]])
+    print([l.titre for l in g["Orwell"]])  # noqa: E741
