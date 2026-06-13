@@ -10,7 +10,18 @@ Exercice 1 - Diagnostic du set
   un seul et même livre ?
 - Quelles méthodes de Livre sont en jeu ? Bug ou décision de conception ?
 
-[votre réponse ici]
+Livres ajoutés au catalogue : 4
+Livres distincts (set)      : 3
+Titres conservés :
+  - 1984
+  - Fahrenheit 451
+  - Le Meilleur des mondes
+
+4 livres ont été ajoutés et 3 ont été gardé par l'ensemble. le livre 1984 (édition collector) à disparu.
+Un set est un ensemble, et un ensemble n'a pas de doublons. Cette règle est appliqué sur les dicts et sur les set à l'aide de l'hashage.
+Si un objet à le meme Hash, le set le considère comme la même entité. Le hash d'un livre est basé sur son isbn et non sur son titre et cette decision de conception
+à été implémenté à l'aide de la méthode __hash__ en accord avec le __eq__.
+
 
 
 ================================================================
