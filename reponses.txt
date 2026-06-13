@@ -30,7 +30,8 @@ Exercice 3 - reverse vs négation
 - Pourquoi reverse=True ne convient-il pas ici ?
 - Comment la négation du critère « année » résout-elle le problème ?
 
-[votre réponse ici]
+Reverse=True inverse toute la liste, ça ne n'inverse pas qu'on fonction de l'auteur.
+La négation -livre.annee n'inverse que le critère annee à auteur égal.
 
 
 ================================================================

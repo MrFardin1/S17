@@ -67,7 +67,7 @@ def trier_par_auteur_puis_annee_recente(livres):
     Returns:
         list: Une nouvelle liste triée.
     """
-    raise NotImplementedError("À compléter (voir énoncé TP, exercice 3).")
+    return sorted(livres, key=lambda livre: (livre.auteur, -livre.annee))
 
 
 # ──────────────────────────────────────────────────────────────────────
@@ -171,3 +171,4 @@ if __name__ == "__main__":
     print([l.titre for l in trier_par_titre(CATALOGUE)])
     print([l.annee for l in trier_par_annee(CATALOGUE, True)])
     print([l.annee for l in trier_par_annee(CATALOGUE, recents_dabord=True)])
+    print([(l.auteur, l.annee) for l in trier_par_auteur_puis_annee_recente(CATALOGUE)])
