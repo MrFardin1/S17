@@ -84,7 +84,7 @@ def rechercher_par_auteur(livres, auteur):
     Returns:
         list: Les Livre correspondants (liste éventuellement vide).
     """
-    raise NotImplementedError("À compléter (voir énoncé TP, exercice 4).")
+    return [livre for livre in livres if livre.auteur == auteur]
 
 
 def rechercher_par_isbn(livres, isbn):
@@ -97,7 +97,9 @@ def rechercher_par_isbn(livres, isbn):
     Returns:
         Livre: Le livre correspondant, ou None s'il est absent.
     """
-    raise NotImplementedError("À compléter (voir énoncé TP, exercice 4).")
+    for livre in livres:
+        if livre.isbn == isbn:
+            return livre
 
 
 # ──────────────────────────────────────────────────────────────────────
@@ -172,3 +174,12 @@ if __name__ == "__main__":
     print([l.annee for l in trier_par_annee(CATALOGUE, True)])
     print([l.annee for l in trier_par_annee(CATALOGUE, recents_dabord=True)])
     print([(l.auteur, l.annee) for l in trier_par_auteur_puis_annee_recente(CATALOGUE)])
+
+    print("------")
+    print(" ")
+    print("------")
+    
+    print(len(rechercher_par_auteur(CATALOGUE, "Orwell")))
+    print(rechercher_par_auteur(CATALOGUE, "Inconnu"))
+    print(rechercher_par_isbn(CATALOGUE, "9780451524935").titre)
+    print(rechercher_par_isbn(CATALOGUE, "0000000000000"))
