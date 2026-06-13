@@ -115,7 +115,7 @@ def compter_distincts(livres):
     Returns:
         int: Nombre de livres distincts.
     """
-    raise NotImplementedError("À compléter (voir énoncé TP, exercice 5).")
+    return len(set(livres))
 
 
 def dedoublonner(livres):
@@ -127,7 +127,7 @@ def dedoublonner(livres):
     Returns:
         list: Liste sans doublon, ordre de première apparition préservé.
     """
-    raise NotImplementedError("À compléter (voir énoncé TP, exercice 5).")
+    return list(dict.fromkeys(livres))
 
 
 # ──────────────────────────────────────────────────────────────────────
@@ -178,8 +178,16 @@ if __name__ == "__main__":
     print("------")
     print(" ")
     print("------")
-    
+
     print(len(rechercher_par_auteur(CATALOGUE, "Orwell")))
     print(rechercher_par_auteur(CATALOGUE, "Inconnu"))
     print(rechercher_par_isbn(CATALOGUE, "9780451524935").titre)
     print(rechercher_par_isbn(CATALOGUE, "0000000000000"))
+
+    print("------")
+    print(" ")
+    print("------")
+
+    print(compter_distincts(AVEC_DOUBLON))
+    print(len(dedoublonner(AVEC_DOUBLON)))
+    print(dedoublonner(AVEC_DOUBLON)[0].titre)

@@ -42,4 +42,7 @@ Exercice 5 - Dédoublonnage
 - Quelles méthodes de Livre rendent cela possible ?
 - Que se passerait-il si Livre ne les définissait pas ?
 
-[votre réponse ici]
+Parce que deux Livre de même ISBN sont vus comme un seul. Cela est possible par la présence de la fonction __eq__ et __hash__.
+Sans leur présence, deux livre sont égaux s'il ont la même adresse mémoire. donc le dict ou le set considèrerai les doublons comme deux entité différentes.
+ 
+
