@@ -30,7 +30,7 @@ def trier_par_titre(livres):
     Returns:
         list: Une nouvelle liste triée (l'originale reste intacte).
     """
-    raise NotImplementedError("À compléter (voir énoncé TP, exercice 2).")
+    return sorted(livres, key=lambda livre: livre.titre)
 
 
 def trier_par_auteur_puis_titre(livres):
@@ -42,7 +42,7 @@ def trier_par_auteur_puis_titre(livres):
     Returns:
         list: Une nouvelle liste triée.
     """
-    raise NotImplementedError("À compléter (voir énoncé TP, exercice 2).")
+    return sorted(livres, key=lambda livre: (livre.auteur, livre.titre))
 
 
 def trier_par_annee(livres, recents_dabord=False):
@@ -55,7 +55,7 @@ def trier_par_annee(livres, recents_dabord=False):
     Returns:
         list: Une nouvelle liste triée.
     """
-    raise NotImplementedError("À compléter (voir énoncé TP, exercice 2).")
+    return sorted(livres, key=lambda livre: livre.annee, reverse=recents_dabord)
 
 
 def trier_par_auteur_puis_annee_recente(livres):
@@ -157,5 +157,17 @@ def regrouper_par_auteur(livres):
 
 
 if __name__ == "__main__":
-    print("Squelette non implémenté : complétez les fonctions, "
-          "puis lancez la suite de tests.")
+    from livre_s17 import Livre
+
+    CATALOGUE = [
+        Livre("1984", "Orwell", "9780451524935", 328, 1949),
+        Livre("La Ferme des animaux", "Orwell", "9780141036137", 112, 1945),
+        Livre("Le Meilleur des mondes", "Huxley", "9780060850524", 311, 1932),
+        Livre("Fahrenheit 451", "Bradbury", "9781451673319", 256, 1953),
+    ]
+    DOUBLON = Livre("1984 (réédition)", "Orwell", "9780451524935", 328, 1949)
+    AVEC_DOUBLON = CATALOGUE + [DOUBLON]
+
+    print([l.titre for l in trier_par_titre(CATALOGUE)])
+    print([l.annee for l in trier_par_annee(CATALOGUE, True)])
+    print([l.annee for l in trier_par_annee(CATALOGUE, recents_dabord=True)])
