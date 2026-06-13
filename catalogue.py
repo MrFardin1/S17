@@ -143,7 +143,7 @@ def indexer_par_isbn(livres):
     Returns:
         dict: Dictionnaire {isbn (str): livre (Livre)}.
     """
-    raise NotImplementedError("À compléter (voir énoncé TP, exercice 6).")
+    return {livre.isbn: livre for livre in livres}
 
 
 def regrouper_par_auteur(livres):
@@ -155,7 +155,11 @@ def regrouper_par_auteur(livres):
     Returns:
         dict: Dictionnaire {auteur (str): [Livre, ...]}.
     """
-    raise NotImplementedError("À compléter (voir énoncé TP, exercice 6).")
+    groupes = {}
+    for livre in livres:
+        groupes.setdefault(livre.auteur, []).append(livre)
+    return groupes
+
 
 
 if __name__ == "__main__":
@@ -191,3 +195,13 @@ if __name__ == "__main__":
     print(compter_distincts(AVEC_DOUBLON))
     print(len(dedoublonner(AVEC_DOUBLON)))
     print(dedoublonner(AVEC_DOUBLON)[0].titre)
+
+    print("------")
+    print(" ")
+    print("------")
+
+
+    print(indexer_par_isbn(CATALOGUE)["9780060850524"].titre)  # 'Le Meilleur des mondes'
+    g = regrouper_par_auteur(CATALOGUE)
+    print(len(g["Orwell"]))  # 2
+    print([l.titre for l in g["Orwell"]])

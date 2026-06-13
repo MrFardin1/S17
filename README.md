@@ -1,5 +1,7 @@
 # Programmation orientée objet - Soirée 17
 
+Fardin bhuiyan
+
 ## Structures de données objet
 
 Dépôt de l'atelier de la soirée 17. Il porte sur les **structures de données objet** : tris avec `sorted(key=...)`, recherches, et collections d'objets (`set`, `dict`), appliqués à un catalogue de `Livre`.
